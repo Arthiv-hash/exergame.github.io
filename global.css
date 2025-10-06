@@ -1,0 +1,179 @@
+/* Global styles for therapeutic gaming platform */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root{
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  margin: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', monospace;
+  background-color: #1a1a2e;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 12px;
+}
+
+header, nav {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+nav a {
+  color: #ffcc00;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+}
+
+nav a:hover {
+  color: #ff6600;
+}
+
+/* Button styling (used in both games) */
+.button {
+  padding: 12px 20px;
+  margin: 10px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #43438b, #b7b7d3);
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: 0.2s;
+}
+
+.button1 {
+  padding: 12px 20px;
+  margin: 10px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #2c5557, #b7b7d3);
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: 0.2s;
+}
+
+.button1:hover {
+  transform: scale(1.1);
+  background: linear-gradient(145deg, #5050c9, #2f2f8e);
+}
+
+.button:hover {
+  transform: scale(1.1);
+  background: linear-gradient(145deg, #5050c9, #2f2f8e);
+}
+
+/* Shared canvas layout */
+canvas {
+  display: block;
+  margin: auto;
+  border: 4px solid #fff;
+  image-rendering: pixelated;
+}
+
+/* Front page container */
+.container {
+  text-align: center;
+  padding: 20px;
+  width: 90%;
+  max-width: 1000px;
+}
+
+/* Title styling */
+header h1 {
+  font-size: 28px;
+  color: #ffcc00;
+  margin-bottom: 8px;
+  text-shadow: 2px 2px #000;
+}
+/* Title styling */
+header h2 {
+  font-size: 28px;
+  color: #ffcc00;
+  margin-bottom: 8px;
+  text-shadow: 2px 2px #000;
+}
+
+header p {
+  font-size: 14px;
+  color: #ddd;
+}
+
+/* Game selection grid */
+.game-options {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.game-card {
+  background: #2c2c54;
+  padding: 20px;
+  border-radius: 15px;
+  border: 3px solid #fff;
+  width: 300px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s, background 0.3s;
+}
+
+.game-card1 {
+  background: #2c5557;
+  padding: 20px;
+  border-radius: 15px;
+  border: 3px solid #fff;
+  width: 300px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s, background 0.3s;
+}
+
+.game-card1:hover {
+  transform: translateY(-10px);
+  background: #4aa8af;
+}
+
+.game-card:hover {
+  transform: translateY(-10px);
+  background: #3c3c99;
+}
+
+.game-card h2 {
+  font-size: 18px;
+  color: #ffcc00;
+  margin-bottom: 12px;
+}
+
+.game-card1 h2 {
+  font-size: 18px;
+  color: #ffcc00;
+  margin-bottom: 12px;
+}
+
+.game-card p {
+  font-size: 12px;
+  color: #eee;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+footer {
+  margin-top: 40px;
+  font-size: 12px;
+  color: #aaa;
+}
