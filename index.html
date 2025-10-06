@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rehab Maze — Gesture Controlled</title>
+
+  <!-- Pixel font -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- MediaPipe (Hands) -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+</head>
+<body>
+  <div id="gameWrap">
+    <!-- Intro / instruction overlay (initially visible) -->
+    <div id="intro" class="intro">
+      <div class="title">REHAB MAZE</div>
+
+      <div class="panel">
+        <div class="panel-left">
+          <div class="avatar-preview" aria-hidden="true">
+            <!-- simple pixel avatar drawn with CSS blocks -->
+            <div class="pixel" style="left:32px; top:6px; width:40px; height:28px; background:#00cc66;"></div>
+          </div>
+        </div>
+        <div class="panel-right">
+          <h3>How to play</h3>
+          <ol>
+            <li>Use only <b>hand gestures</b> — no keyboard needed.</li>
+            <li><strong>Index finger</strong> up → Move UP (hold 3s)</li>
+            <li><strong>Pinky finger</strong> up → Move DOWN (hold 3s)</li>
+            <li><strong>Fist (all closed)</strong> → Move LEFT (hold 3s)</li>
+            <li><strong>Index + Middle</strong> → Move RIGHT (hold 3s)</li>
+            <li><strong>Open palm</strong> → FIRE (destroy destructible block in front)</li>
+          </ol>
+          <p class="note">Hold each gesture continuously for <strong>3 seconds</strong> to perform the action.</p>
+        </div>
+      </div>
+
+      <div class="start-row">
+        <div class="start-instructions">Hold <span class="palm-icon">✋</span> for <strong>3s</strong> to start</div>
+        <div class="blinker">■</div>
+      </div>
+
+      <div class="footer-note">Enemy chases you — it cannot pass through solid bricks.</div>
+    </div>
+
+    <!-- Game canvas -->
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- Overlay canvas for gesture progress & landmarks -->
+    <canvas id="overlayCanvas" class="overlay"></canvas>
+
+    <!-- Small mirrored video for orientation (top-right) -->
+    <video id="input_video" autoplay playsinline class="miniVideo"></video>
+
+    <!-- Status & accessible messages -->
+    <div id="status" aria-live="polite" class="status">Allow camera and show your hand.</div>
+
+    <!-- Win modal (initially hidden) -->
+    <div id="winModal" style="display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:rgba(15,18,32,0.96); z-index:9999; align-items:center; justify-content:center;">
+      <div style="background:#23263a; border-radius:16px; box-shadow:0 0 32px #0008; padding:32px 40px; text-align:center; color:#ffd369; font-family:'Press Start 2P', monospace; max-width:90vw;">
+        <h2 style="color:#ff6b6b; margin-bottom:18px;">Congratulations!</h2>
+        <div id="winStats" style="font-size:18px; margin-bottom:24px;"></div>
+        <button id="winCloseBtn" style="background:#ffd369; color:#23263a; border:none; border-radius:8px; font-size:18px; font-family:'Press Start 2P', monospace; padding:12px 32px; cursor:pointer;">Play Again</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="maze.js"></script>
+</body>
+</html>
